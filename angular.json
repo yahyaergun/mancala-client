@@ -120,6 +120,12 @@
           }
         }
       }
-    }},
-  "defaultProject": "mancala-client"
+    }
+  },
+  "defaultProject": "mancala-client",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
+  }
 }
