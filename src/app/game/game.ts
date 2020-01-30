@@ -1,14 +1,13 @@
-export enum GameState {
-  IN_PROGRESS,
-  ENDED
-}
+import {Player} from '../player/player';
+
+export type GameState = 'WAITING_FOR_PLAYERS' | 'IN_PROGRESS' | 'ENDED';
 
 export class Game {
   public id: number;
   public board: Board;
   public turn: string;
-  public player1: string;
-  public player2: string;
+  public player1: Player;
+  public player2: Player;
   public score;
   public state: GameState;
 

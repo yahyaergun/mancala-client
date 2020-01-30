@@ -1,0 +1,8 @@
+<div *ngIf="!currentPlayer">
+  <input #nameField (keyup.enter)="login(nameField.value)">
+  <p>your name?</p>
+</div>
+
+<div *ngIf="currentPlayer">
+  <p>Welcome, {{currentPlayer.name}}. Please select a game to join or create a game!</p>
+</div>

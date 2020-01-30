@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {GameService} from '../services/game.service';
-import {Game, GameState, Pit} from './game';
+import {Game, Pit} from './game';
 
 @Component({
   selector: 'app-game',
@@ -8,17 +8,16 @@ import {Game, GameState, Pit} from './game';
   styleUrls: ['./game.component.scss']
 })
 export class GameComponent implements OnInit {
-  game: Game;
+  @Input() game: Game;
 
   constructor(private service: GameService) { }
 
   ngOnInit() {
-    this.service.createGame().subscribe(game => this.game = game);
   }
 
   makeMove(pit: Pit) {
-    if (this.game.state !== GameState.ENDED) {
-      this.service.makeMove(pit.position).subscribe(game => this.game = game);
+    if (this.game.state !== 'ENDED') {
+      this.service.makeMove(this.game.id, pit.position).subscribe(game => this.game = game);
     }
   }
 }
