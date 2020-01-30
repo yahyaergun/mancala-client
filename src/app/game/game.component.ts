@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {GameService} from '../services/game.service';
 import {Game, Pit} from './game';
+import {WebsocketService} from '../services/websocket.service';
 
 @Component({
   selector: 'app-game',
@@ -10,7 +11,8 @@ import {Game, Pit} from './game';
 export class GameComponent implements OnInit {
   @Input() game: Game;
 
-  constructor(private service: GameService) { }
+  constructor(private service: GameService, private wsService: WebsocketService) {
+  }
 
   ngOnInit() {
   }
