@@ -12,6 +12,7 @@ export class GameComponent implements OnInit {
   @Input() game: Game;
 
   constructor(private service: GameService, private wsService: WebsocketService) {
+    wsService.connect().subscribe(message => this.game = JSON.parse(message.body));
   }
 
   ngOnInit() {
