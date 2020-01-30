@@ -4,21 +4,21 @@
 
   <div class="rows">
     <div class="row player-two">
-      <div (click)="makeMove(game.board.pits[7])" class="pit"><p>{{game.board.pits[7].marbleCount}}</p></div>
-      <div (click)="makeMove(game.board.pits[8])" class="pit"><p>{{game.board.pits[8].marbleCount}}</p></div>
-      <div (click)="makeMove(game.board.pits[9])" class="pit"><p>{{game.board.pits[9].marbleCount}}</p></div>
-      <div (click)="makeMove(game.board.pits[10])" class="pit"><p>{{game.board.pits[10].marbleCount}}</p></div>
-      <div (click)="makeMove(game.board.pits[11])" class="pit"><p>{{game.board.pits[11].marbleCount}}</p></div>
-      <div (click)="makeMove(game.board.pits[12])" class="pit"><p>{{game.board.pits[12].marbleCount}}</p></div>
+      <div (click)="!isPlayerOneTurn() && makeMove(game.board.pits[7])" class="pit"><p>{{game.board.pits[7].marbleCount}}</p></div>
+      <div (click)="!isPlayerOneTurn() && makeMove(game.board.pits[8])" class="pit"><p>{{game.board.pits[8].marbleCount}}</p></div>
+      <div (click)="!isPlayerOneTurn() && makeMove(game.board.pits[9])" class="pit"><p>{{game.board.pits[9].marbleCount}}</p></div>
+      <div (click)="!isPlayerOneTurn() && makeMove(game.board.pits[10])" class="pit"><p>{{game.board.pits[10].marbleCount}}</p></div>
+      <div (click)="!isPlayerOneTurn() && makeMove(game.board.pits[11])" class="pit"><p>{{game.board.pits[11].marbleCount}}</p></div>
+      <div (click)="!isPlayerOneTurn() && makeMove(game.board.pits[12])" class="pit"><p>{{game.board.pits[12].marbleCount}}</p></div>
     </div>
 
     <div class="row player-one">
-      <div (click)="makeMove(game.board.pits[0])" class="pit"><p>{{game.board.pits[0].marbleCount}}</p></div>
-      <div (click)="makeMove(game.board.pits[1])" class="pit"><p>{{game.board.pits[1].marbleCount}}</p></div>
-      <div (click)="makeMove(game.board.pits[2])" class="pit"><p>{{game.board.pits[2].marbleCount}}</p></div>
-      <div (click)="makeMove(game.board.pits[3])" class="pit"><p>{{game.board.pits[3].marbleCount}}</p></div>
-      <div (click)="makeMove(game.board.pits[4])" class="pit"><p>{{game.board.pits[4].marbleCount}}</p></div>
-      <div (click)="makeMove(game.board.pits[5])" class="pit"><p>{{game.board.pits[5].marbleCount}}</p></div>
+      <div (click)="isPlayerOneTurn() && makeMove(game.board.pits[0])" class="pit"><p>{{game.board.pits[0].marbleCount}}</p></div>
+      <div (click)="isPlayerOneTurn() && makeMove(game.board.pits[1])" class="pit"><p>{{game.board.pits[1].marbleCount}}</p></div>
+      <div (click)="isPlayerOneTurn() && makeMove(game.board.pits[2])" class="pit"><p>{{game.board.pits[2].marbleCount}}</p></div>
+      <div (click)="isPlayerOneTurn() && makeMove(game.board.pits[3])" class="pit"><p>{{game.board.pits[3].marbleCount}}</p></div>
+      <div (click)="isPlayerOneTurn() && makeMove(game.board.pits[4])" class="pit"><p>{{game.board.pits[4].marbleCount}}</p></div>
+      <div (click)="isPlayerOneTurn() && makeMove(game.board.pits[5])" class="pit"><p>{{game.board.pits[5].marbleCount}}</p></div>
     </div>
   </div>
 

@@ -20,4 +20,8 @@ export class GameComponent implements OnInit {
       this.service.makeMove(this.game.id, pit.position).subscribe(game => this.game = game);
     }
   }
+
+  isPlayerOneTurn() {
+    return this.game.turn === 'PLAYER_ONE';
+  }
 }
