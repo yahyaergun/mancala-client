@@ -4,5 +4,6 @@
 </div>
 
 <div *ngIf="currentPlayer">
-  <p>Welcome, {{currentPlayer.name}}. Please select a game to join or create a game!</p>
+  <span>Welcome, {{currentPlayer.name}} </span>
+  <button (click)="logout()" class="btn btn-info btn-sm">Logout</button>
 </div>

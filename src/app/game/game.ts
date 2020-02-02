@@ -8,14 +8,19 @@ export class Game {
   public turn: string;
   public player1: Player;
   public player2: Player;
-  public score;
+  public score: Score;
   public state: GameState;
 
   constructor() {}
 }
 
+export class Score {
+  public playerOneScore: number;
+  public playerTwoScore: number;
+}
+
+
 export class Board {
-  id: number;
   pits: Pit[];
 
   constructor() {}

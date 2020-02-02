@@ -8,12 +8,28 @@ import {throwError} from 'rxjs';
   providedIn: 'root'
 })
 export class PlayerService {
-  private url = 'http://localhost:8080/players';
+  private baseUrl = 'http://localhost:8080/players';
+  private logoutUrl = this.baseUrl + '/logout';
+  private currentPlayerUrl = this.baseUrl + '/current';
 
   constructor(private http: HttpClient) { }
 
+  getCurrentPlayer() {
+    return this.http.get<Player>(this.currentPlayerUrl, {withCredentials: true})
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
   login(name: string) {
-    return this.http.post<Player>(this.url, name, {withCredentials: true})
+    return this.http.post<Player>(this.baseUrl, name, {withCredentials: true})
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  logout() {
+    return this.http.post<Player>(this.logoutUrl, {}, {withCredentials: true})
       .pipe(
         catchError(this.handleError)
       );

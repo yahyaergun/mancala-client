@@ -8,6 +8,7 @@ import { StompService } from '@stomp/ng2-stompjs';
 export class WebsocketService {
   private socketUrl = 'ws://localhost:8080/socket/websocket';
   private gameUpdateUrl = '/update/game';
+  private gamelistUpdateUrl = '/update/gamelist';
   private stompService: StompService;
 
   constructor() {
@@ -24,8 +25,13 @@ export class WebsocketService {
     });
   }
 
-  public connect() {
+  public subscribeToGameUpdates() {
     return this.stompService.subscribe(this.gameUpdateUrl);
   }
+
+  public subscribeToGamelistUpdates() {
+    return this.stompService.subscribe(this.gamelistUpdateUrl);
+  }
+
 
 }

@@ -1,21 +1,16 @@
 <div *ngIf="!currentGame">
-  <h2>Game list</h2>
-  <ul>
-    <li *ngFor="let game of games">
-      <div>
-        <p>
-          <span>{{game.id}} </span>
-          <span>Player1: {{game.player1.name}} </span>
-          <span>Player2: {{game.player2?.name}} </span>
-          <span>{{game.state}} </span>
-          <button (click)="joinGame(game.id)" *ngIf="game.state === 'WAITING_FOR_PLAYERS'" > Join </button>
-        </p>
-      </div>
+  <hr>
+  <h4>Game list</h4>
+  <ul class="list-group">
+    <li *ngFor="let game of games" class="list-group-item d-flex justify-content-between align-items-center">
+        <span>Game{{game.id}}</span>
+        <span>Player1: {{game.player1.name}} </span>
+        <span>Player2: {{game.player2 ? game.player2.name : '-'}} </span>
+        <span class="badge badge-primary badge-pill">{{game.state}} </span>
+        <button class="btn btn-success" (click)="joinGame(game.id)" *ngIf="game.state === 'WAITING_FOR_PLAYERS'">Join</button>
     </li>
   </ul>
-  <button (click)="createGame()">
-    Create game
-  </button>
+  <button (click)="createGame()" class="btn btn-primary">Create game</button>
 </div>
 
-<app-game *ngIf="currentGame" [game]="currentGame"></app-game>
+<app-game *ngIf="currentGame" [game]="currentGame" (gameEnded)="currentGameEnded($event)"></app-game>

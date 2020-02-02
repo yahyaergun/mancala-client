@@ -1,4 +1,4 @@
-<body data-player="one">
+<body *ngIf="game" data-player="one">
 <div class="board">
   <div class="player-two store"><p>{{game.board.pits[13].marbleCount}}</p></div>
 
@@ -25,6 +25,20 @@
   <div class="player-one store"><p>{{game.board.pits[6].marbleCount}}</p></div>
 </div>
 
-<div> Turn: {{game.turn}} </div>
-<div> Game is {{game.state}} </div>
+<div *ngIf="game.state !== 'ENDED'">
+  <div> Turn: {{game.turn === 'PLAYER_ONE' ? game.player1.name : game.player2.name}} </div>
+  <div> Game is {{game.state}} </div>
+</div>
+
+<div *ngIf="game.state === 'ENDED'">
+  <h3> Game ended! </h3>
+  <h6> {{game.score.playerOneScore > game.score.playerTwoScore ? game.player1.name : game.player2.name }} won!</h6>
+  <div>
+    <h6>Score: </h6>
+    <p>{{game.player1.name}}: {{game.score.playerOneScore}}</p>
+    <p>{{game.player2.name}}: {{game.score.playerTwoScore}}</p>
+  </div>
+
+  <button (click)="quitGame()">Quit</button>
+</div>
 </body>

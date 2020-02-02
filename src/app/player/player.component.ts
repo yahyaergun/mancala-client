@@ -14,10 +14,15 @@ export class PlayerComponent implements OnInit {
   constructor(private playerService: PlayerService) { }
 
   ngOnInit() {
+    this.playerService.getCurrentPlayer().subscribe(player => this.currentPlayer = player);
   }
 
   login(name: string) {
     this.playerService.login(name).subscribe(player => this.currentPlayer = player);
+  }
+
+  logout() {
+    this.playerService.logout().subscribe(this.currentPlayer = null);
   }
 
 }
