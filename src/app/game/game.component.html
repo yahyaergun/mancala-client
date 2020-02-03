@@ -25,9 +25,10 @@
   <div class="player-one store"><p>{{game.board.pits[6].marbleCount}}</p></div>
 </div>
 
-<div *ngIf="game.state !== 'ENDED'">
-  <div> Turn: {{game.turn === 'PLAYER_ONE' ? game.player1.name : game.player2.name}} </div>
-  <div> Game is {{game.state}} </div>
+<div *ngIf="game.state !== 'ENDED'" class="container">
+  <div class="col-xs-2"> Turn: {{game.turn === 'PLAYER_ONE' ? game.player1.name : game.player2.name}} </div>
+  <div class="col-xs-2"> Match: {{game.player1.name}} vs. {{game.player2.name}} </div>
+  <div class="col-xs-2"> Game is {{game.state}} </div>
 </div>
 
 <div *ngIf="game.state === 'ENDED'">
